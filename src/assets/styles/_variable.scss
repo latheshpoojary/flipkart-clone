@@ -1,0 +1,10 @@
+@use './color' as *;
+
+:root {
+    @each $variant, $value in $colors {
+      @each $number, $color in $value {
+        --#{$variant}-#{""+$number}: #{$color};
+      }
+    }
+  }
+  

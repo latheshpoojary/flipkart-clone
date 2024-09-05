@@ -1,0 +1,16 @@
+.products-wrapper{
+    width: 100%;
+    .image-wrapper{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: var(--primary-100);
+        align-content: center;
+        img{
+            width: 70%;
+            height: 70%;
+            margin: auto;
+        }
+
+    }
+}

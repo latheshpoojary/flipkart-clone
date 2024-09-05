@@ -8,6 +8,7 @@ import { HeaderComponent } from '../layout/header/header.component';
 import { CategoriesComponent } from '../layout/categories/categories.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CardComponent } from '../shared/card/card.component';
 
 
 @NgModule({
@@ -17,11 +18,13 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     HeaderComponent,
     CategoriesComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
-    ViewRoutingModule
+    ViewRoutingModule,
+    
   ]
 })
 export class ViewModule { }

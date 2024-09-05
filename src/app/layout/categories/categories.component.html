@@ -1,1 +1,7 @@
-<p>categories works!</p>
+<div class="category-wraper gap-4 bg-white">
+    <div class="imager-wrapper px-4 " *ngFor="let category of categroies">
+        <img [src]="category.image" alt="">
+        <p class="font-semibold mt-1 text-center">{{category.text}}</p>
+    </div>
+   
+</div>

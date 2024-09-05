@@ -1,0 +1,26 @@
+.card-wrapper{
+    padding: 1rem;
+    box-shadow: 3px 0px 6px rgba(0,0,0,0.2);
+    border: 1px solid var(--shade-100);
+    border-radius: 4px;
+    .image-wrapper{
+        max-height:142px;
+        min-height: 142px;
+        max-width: 142px;
+        min-width: 142px;
+        height: 142px;
+        img{
+            margin-inline: auto;
+            height: 100%;
+        }
+    }
+    .product-details{
+        text-align: center;
+        .product-name{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            max-width: 142px;
+        }
+    }
+}

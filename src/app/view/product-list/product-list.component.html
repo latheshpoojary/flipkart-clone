@@ -1,3 +1,67 @@
-<p>product-list works!</p>
-<h2>hello</h2>
-<button routerLink='../product-details'>click</button>
+<div class="products-wrapper bg-white p-4">
+    <div class="featured-release mb-4">
+        <div class="flex justify-between items-center mb-4">
+            <p class="text-header">Featured Release</p>
+            <div class="image-wrapper cursor-pointer">
+                <img src="../../../assets/icons/next-btn.svg" alt="">
+            </div>
+        </div>
+        <div class="flex gap-4 ">
+            <ng-container *ngFor="let product of latestProduct">
+                <app-card [cardDetails]="product"></app-card>
+            </ng-container>
+        </div>
+    </div>
+    <div class="latest-release mb-4">
+        <div class="flex justify-between items-center mb-4">
+            <p class="text-header">Latest Release</p>
+            <div class="image-wrapper cursor-pointer">
+                <img src="../../../assets/icons/next-btn.svg" alt="">
+            </div>
+        </div>
+        <div class="flex gap-4 ">
+            <ng-container *ngFor="let product of cheapestProduct">
+                <app-card [cardDetails]="product"></app-card>
+            </ng-container>
+        </div>
+    </div>
+    <div class="trending-product mb-4">
+        <div class="flex justify-between items-center mb-4">
+            <p class="text-header">Trending Product</p>
+            <div class="image-wrapper cursor-pointer">
+                <img src="../../../assets/icons/next-btn.svg" alt="">
+            </div>
+        </div>
+        <div class="flex gap-4 ">
+            <ng-container *ngFor="let product of expensiveProduct">
+                <app-card [cardDetails]="product"></app-card>
+            </ng-container>
+        </div>
+    </div>
+    <div class="recommended-product mb-4">
+        <div class="flex justify-between items-center mb-4">
+            <p class="text-header">Recommended Product</p>
+            <div class="image-wrapper cursor-pointer">
+                <img src="../../../assets/icons/next-btn.svg" alt="">
+            </div>
+        </div>
+        <div class="flex gap-4 justify-between">
+            <div class="card p-4">
+                <div class="card-header"><img src="" alt=""></div>
+                <div class="card-content">
+                    <div class="name">
+                        <p></p>
+                    </div>
+                    <div class="price">
+                        <b></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+</div>

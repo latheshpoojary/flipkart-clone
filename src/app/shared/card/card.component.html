@@ -1,0 +1,9 @@
+<div class="card-wrapper">
+    <div class="image-wrapper">
+        <img [src]="cardDetails.image" alt="phone">
+    </div>
+    <div class="product-details">
+        <p class="product-name" [title]="cardDetails.name">{{cardDetails.name}}</p>
+        <b class="product-price">From {{cardDetails.price | currency :'INR' :'symbol': '1.0-0'}}</b>
+    </div>
+</div>
