@@ -4,7 +4,7 @@
         <img src="../../../assets/icons/search.svg" alt="">
         <input type="search" class="outline-none  w-full h-full bg-transparent" placeholder="Search for Products, Brands and More">
     </div>
-    <div class="login flex gap-2 items-center p-3 hover:bg-primary-100 hover:text-white hover:fill-white rounded-md">
+    <button class="login flex gap-2 items-center p-3 hover:bg-primary-100 hover:text-white hover:fill-white rounded-md " [routerLink]="['/auth/login']">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <g clip-path="url(#clip0_11829_87876)">
               <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -18,8 +18,8 @@
             </defs>
           </svg>
           
-        <label for="">Login</label>
-    </div>
+        <label for="" class="cursor-pointer">Login</label>
+    </button>
     <div class="login flex gap-2 items-center p-3 hover:bg-blue-500 hover:text-white hover:fill-white rounded-md">
         <img src="../../../assets/icons/cart.svg" alt="">
         <label for="">Cart</label>

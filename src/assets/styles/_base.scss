@@ -1,3 +1,13 @@
 .text-header{
     @apply font-semibold text-xl
 }
+
+.input-label {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--content-DEFAULT) !important;
+    // margin-bottom: .5rem;
+  }
+  .input-box{
+    @apply bg-shade-80 rounded-md px-4 py-3 outline-none border text-content
+  }
