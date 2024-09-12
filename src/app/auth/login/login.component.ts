@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/card/services/auth.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent {
     private service :AuthService,
     // private msalService: MsalService,
     private http: HttpClient,
-    // private toast: NgToastService,
+    private toast: ToastrService,
     private route:Router
   ) {
     this.signInForm = this.builder.group({
@@ -57,7 +58,7 @@ export class LoginComponent {
           [
             Validators.minLength(1),
             Validators.maxLength(20),
-            Validators.required,
+           
           ],
         ],
       }),
@@ -85,22 +86,22 @@ export class LoginComponent {
 
 
   ngOnInit() {
-
     this.authService.authState.subscribe((user) => {
-console.log(user);
+      console.log(user);
 
       this.user = user;
       this.loggedIn = (user != null);
       if (this.loggedIn) {
-        
-        this.service.googleLogIn(user).subscribe({
-          next: res => {
+        this.service.googleRegister(user).subscribe({
+          next: (res:any) => {
             console.log(res,"response");
-            // this.toast.success({ detail: 'Success', summary: 'Login Suceessfull' })
+            localStorage.setItem('tokenLy', res.token);
+            this.toast.success(res.message)
+            this.route.navigate(['/home'])
           },
           error: err => {
             console.log(err,"Error");
-            // this.toast.error({ detail: 'Error', summary: err.message })
+            this.toast.error(err.message)
           }
 
         })
@@ -131,9 +132,8 @@ console.log(user);
       }
       this.service.loginUser(signInObj).subscribe({
         next: (res:any) => {
-          console.log(res, "Res from the server");
-          localStorage.setItem('token', res.token);
-        // this.toast.success({ detail: 'Success', summary: 'Successfully Loged in' });
+          localStorage.setItem('tokenLy', res.token);
+        this.toast.success(res.message);
           this.resetForm('signIn');
           this.loading = false;
           this.route.navigate(['/home']);
@@ -141,9 +141,8 @@ console.log(user);
         },
         error: (err) => {
           console.log(err, "Error");
-        // this.toast.error({ detail: 'Error', summary: "Invalid Credential" });
-
-          this.loading = false;
+          this.toast.error(err.error.message);
+            this.loading = false;
         }
      })
       return;
@@ -156,22 +155,20 @@ console.log(user);
       password:this.signUpForm.value.password
     }
     this.service.registerUser(obj).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res, "Response");
-        // this.toast.success({ detail: 'Success', summary: 'Successfully Registered' });
+        localStorage.setItem('tokenLy', res.token);
+        this.toast.success(res.message);
         this.resetForm('signUp')
         this.loading = false;
+        this.route.navigate(['/home'])
       },
       error: err => {
-        
-        console.log(err.status, "Error");
         if (err.status === 400) {
-        // this.toast.error({ detail: 'Error', summary: "User already Exist. Please login" });
-
+        this.toast.error(err.message);
           this.drop = !this.drop;
-
         }
-        // else this.toast.error({ detail: 'Error', summary: err.error });
+        else this.toast.error(err.message);
         this.loading = false;
       }
     })

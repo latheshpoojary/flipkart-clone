@@ -9,6 +9,7 @@ import { CategoriesComponent } from '../layout/categories/categories.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CardComponent } from '../shared/card/card.component';
+import { CartsComponent } from './carts/carts.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CardComponent } from '../shared/card/card.component';
     CategoriesComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    CardComponent
+    CardComponent,
+    CartsComponent
   ],
   imports: [
     CommonModule,

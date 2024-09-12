@@ -1,6 +1,10 @@
 .header-container{
     background-color: #fff;
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    
     .login{
         &:hover{
             svg{
@@ -9,5 +13,9 @@
             }
         }
     }
+}
+
+.active{
+    @apply bg-blue-500 text-white fill-white
 }
 

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { HeaderService } from 'src/app/shared/card/services/header.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -11,7 +12,7 @@ export class HeaderComponent {
 
   
 
-  constructor(private http:HttpClient){
+  constructor(public service:HeaderService){
     
   }
 

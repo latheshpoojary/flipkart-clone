@@ -20,9 +20,12 @@
           
         <label for="" class="cursor-pointer">Login</label>
     </button>
-    <div class="login flex gap-2 items-center p-3 hover:bg-blue-500 hover:text-white hover:fill-white rounded-md">
+    <div class="login flex gap-2 items-center p-3 hover:bg-blue-500 hover:text-white hover:fill-white rounded-md relative" routerLink="/home/cart" routerLinkActive="active">
         <img src="../../../assets/icons/cart.svg" alt="">
         <label for="">Cart</label>
+        <div class="cart-count flex items-center justify-center w-[15px] h-[15px] rounded-[50%] bg-red-500 text-white p-2 absolute top-[5px] right-0" *ngIf="service.cartItems().length>0">
+          <span class="text-[10px] leading-[0px]">{{service.cartItems().length}}</span>
+        </div>
     </div>
     <div class="login flex gap-2 items-center p-3 hover:bg-blue-500 hover:text-white hover:fill-white rounded-md">
         <img src="../../../assets/icons/store.svg" alt="">

@@ -1,0 +1,72 @@
+<h1 class="text-left text-2xl font-bold tracking-wider text-gray-900 mb-3">Shopping Cart</h1>
+<p class="text-left text-base text-gray-700 mb-4">This is your cart based your rem you want to buy</p>
+
+<div class="item-list flex items-start justify-between gap-8 p-4 px-8  bg-white">
+
+    <div class="cart-list border-2 rounde-lg ">
+        <div class="cart flex gap-4 items-center justify-between" *ngFor="let item of service.cartItems()">
+            <div class="image-wrapper">
+                <img [src]="item.image" alt="">
+            </div>
+           <div>
+            <p class="text-lg text-content">{{item.name | titlecase}}</p>
+            <p class="text-lg text-content">{{item.type}}</p>
+           </div>
+           <p class="price text-content-100 text-base">{{item.price | currency:'INR'}}</p>
+            <div class="">
+                <div class="relative flex items-center max-w-[8rem]">
+                    <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input"
+                        class="border-2  hover:bg-gray-200  border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
+                        (click)="decrementQuantity(item,item.quantity)">
+                        <svg class="w-3 h-3 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 18 2">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h16" />
+                        </svg>
+                    </button>
+                    <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation"
+                        class="bg-gray-50 border-x-0 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5  " [value]="item.quantity"
+                         required readonly/>
+                    <button type="button" id="increment-button" data-input-counter-increment="quantity-input"
+                        class="bg-gray-100  hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100  focus:ring-2 focus:outline-none"
+                        (click)="incrementQuantity(item,item.quantity)">
+                        <svg class="w-3 h-3 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="icon-wrapper" (click)="removeItem(item)">
+                <img src="../../../assets/icons/trash.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="cart-amount p-4 border-2">
+        <h2 class="text-base text-content-60 font-bold mb-4">Order Summary</h2>
+        <div class="summury">
+            <div class="flex flex-col gap-4">
+                <div class="flex justify-between ">
+                    <h3 class="text-content-70 text-sm font-semibold ">Items Total</h3>
+                    <h3 class="text-content-70 text-sm font-semibold ">{{service.total()| currency :'INR'}}</h3>
+                </div>
+                <div class="flex justify-between">
+                    <h3 class="text-content-70 text-sm font-semibold ">Discount</h3>
+                    <h3 class="text-content-70 text-sm font-semibold ">{{service.total()| currency :'INR'}}</h3>
+                </div>
+                <div class="flex justify-between">
+                    <h3 class="text-content-70 text-sm font-semibold ">Shipping</h3>
+                    <h3 class="text-content-70 text-sm font-semibold ">{{service.total()| currency :'INR'}}</h3>
+                </div>
+                <div class="flex justify-between">
+                    <h3 class="text-content-70 text-sm font-semibold ">Platform Fee</h3>
+                    <h3 class="text-content-70 text-sm font-semibold ">{{service.total()| currency :'INR'}}</h3>
+                </div>
+
+
+            </div>
+        </div>
+        <button class="rounded-lg bg-[#071a3b] text-white py-2 px-6 w-full mt-4">Place Order</button>
+    </div>
+</div>

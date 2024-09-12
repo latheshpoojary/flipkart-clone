@@ -26,8 +26,16 @@ export class AuthService {
   apiURL = environment.baseURL;
   constructor(private http: HttpClient) {}
 
-  googleLogIn(user: User) {
-    return this.http.post(`${this.apiURL}/auth/google`, {
+  googleRegister(user: User) {
+    return this.http.post(`${this.apiURL}/auth/google-register`, {
+      firstName: user.firstName,
+      lastName:user.lastName,
+      email: user.email,
+    } );
+  }
+
+  goggleLogin(user:User){
+    return this.http.post(`${this.apiURL}/auth/google-login`, {
       firstName: user.firstName,
       lastName:user.lastName,
       email: user.email,
