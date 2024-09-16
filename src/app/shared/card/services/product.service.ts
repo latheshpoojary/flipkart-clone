@@ -15,4 +15,8 @@ export class ProductService {
   getAllLatestProduct(){
     return this.http.get(`${this.apiURL}/product/list`);
   }
+
+  getAllRelatedProducts(queryParams:any){
+    return this.http.get(`${this.apiURL}/product/related-product`,queryParams);
+  }
 }

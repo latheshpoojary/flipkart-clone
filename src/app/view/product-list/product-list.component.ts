@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/card/services/product.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ProductListComponent implements OnInit{
   expensiveProduct = [];
 
 
-  constructor(private service:ProductService){}
+  constructor(private service:ProductService,private route:Router){}
 
   ngOnInit(): void {
     this.service.getAllLatestProduct().subscribe({
@@ -26,6 +27,12 @@ export class ProductListComponent implements OnInit{
 
       }
     })
+  }
+
+  onProductClick(){
+    console.log("clicked for card click");
+    
+    // this.route.navigate(['home/product-details'])
   }
 
 }

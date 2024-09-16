@@ -1,0 +1,29 @@
+.related-product-wrapper{
+    .cards{
+        border-bottom: 2px solid #dcdcdc;
+        padding: .5rem 0;
+        .image-wrapper{
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                object-fit: contain;
+            }
+        }
+        .price{
+            margin-left: auto;
+            button{
+                padding: 10px 1rem;
+                text-align: center;
+                border-radius: 8px;
+                background-color: var(--primary-DEFAULT);
+                color: #fff;
+                margin-top: auto;
+                font-weight: 700;
+            }
+        }
+    }
+}
